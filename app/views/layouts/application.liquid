@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Crp</title>
-    {{ csrf_meta_tags }}
-    {{ csp_meta_tag }}
-    {{ stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' }}
-    {{ javascript_include_tag 'application', 'data-turbolinks-track': 'reload' }}
+    <title>{{ title }}</title>
+    {% csrf_meta_tags %}
+    <link rel="stylesheet" href="{{ 'application.css' | asset_url }}">
+    <script type="text/javascript" src="{{ 'application.js' | asset_url }}"></script>
   </head>
   <body>
+    {% include 'layouts/navbar' %}
     {{ content_for_layout }}
+    {% include 'layouts/footer' %}
   </body>
 </html>
